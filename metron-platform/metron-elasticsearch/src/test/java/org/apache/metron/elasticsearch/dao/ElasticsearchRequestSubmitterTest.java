@@ -99,7 +99,7 @@ public class ElasticsearchRequestSubmitterTest {
     SearchResponse response = mock(SearchResponse.class);
     SearchRequest request = new SearchRequest();
     ShardSearchFailure fail = mock(ShardSearchFailure.class);
-    SearchShardTarget target = new SearchShardTarget("node1", mock(Index.class), 1, "metron");
+    SearchShardTarget target = new SearchShardTarget("metron-node1", mock(Index.class), 1, "metron");
 
     // response will have status of OK
     when(response.status()).thenReturn(RestStatus.OK);

@@ -380,7 +380,7 @@ e.g. enrichment_commands.py can be found in:
 
 A `find` command can also be useful in quickly locating the exact location of a file, e.g.
 ```
-[root@node1 ~]# find /var/lib/ -name enrichment_commands.py
+[root@metron-node1 ~]# find /var/lib/ -name enrichment_commands.py
 /var/lib/ambari-server/resources/mpacks/metron-ambari.mpack-0.4.0.0/common-services/METRON/0.4.0/package/scripts/enrichment_commands.py
 /var/lib/ambari-agent/cache/common-services/METRON/0.4.0/package/scripts/enrichment_commands.py
 ```
@@ -405,12 +405,12 @@ After we've modified files in Ambari and the mpack is working, it is a good idea
     ```
     cd metron-deployment
     mvn clean package
-    scp packaging/ambari/metron-mpack/target/metron_mpack-0.4.0.0.tar.gz root@node1:~
+    scp packaging/ambari/metron-mpack/target/metron_mpack-0.4.0.0.tar.gz root@metron-node1:~
     ```
 1. Log in to Vagrant, deploy the mpack and restart Ambari
 
     ```
-    ssh root@node1
+    ssh root@metron-node1
     ambari-server install-mpack --mpack=metron_mpack-0.4.0.0.tar.gz --verbose --force
     ambari-server restart
     ```

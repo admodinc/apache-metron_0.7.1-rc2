@@ -142,12 +142,12 @@ The application will be available at http://host:4201 assuming the port is set t
     ```
 1. You can view the GUI @http://localhost:4201. The default credentials for login are admin/password
 
-**NOTE**: *In the development mode ui by default connects to REST at http://node1:8082 for fetching data. If you wish to change it you can change the REST url at metron/metron-interface/metron-alerts/proxy.conf.json*
+**NOTE**: *In the development mode ui by default connects to REST at http://metron-node1:8082 for fetching data. If you wish to change it you can change the REST url at metron/metron-interface/metron-alerts/proxy.conf.json*
 
 ## E2E Tests
 
 ### Caveats
-1. E2E tests uses data from full-dev wherever applicable. The tests assume rest-api's are available @http://node1:8082. It is recommended to shutdown all other Metron services while running the E2E tests including Parsers, Enrichment, Indexing and the Profiler.
+1. E2E tests uses data from full-dev wherever applicable. The tests assume rest-api's are available @http://metron-node1:8082. It is recommended to shutdown all other Metron services while running the E2E tests including Parsers, Enrichment, Indexing and the Profiler.
 
 1. E2E tests are run on headless chrome. To see the chrome browser in action, remove the '--headless' parameter of chromeOptions in metron/metron-interface/metron-alerts/protractor.conf.js file
 

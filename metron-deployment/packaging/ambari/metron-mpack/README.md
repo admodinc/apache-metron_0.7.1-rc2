@@ -118,7 +118,7 @@ feature is to have one document per line. Here's an exmaple export using elastic
 
 ```
 elasticdump \
-  --input=http://node1:9200/.kibana \
+  --input=http://metron-node1:9200/.kibana \
   --output=~/dashboard-data.json \
   --type=data
 ```

@@ -630,7 +630,7 @@ WORD:UNWANTED}/(%{IP:ip_dst_addr})?'
 1025 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
 Stellar, Go!
 Please note that functions are loading lazily in the background and will be unavailable until loaded fully.
-{es.clustername=metron, es.ip=node1, es.port=9300, es.date.format=yyyy.MM.dd.HH}
+{es.clustername=metron, es.ip=metron-node1, es.port=9300, es.date.format=yyyy.MM.dd.HH}
 [Stellar]>>> # First we get the squid parser config from zookeeper
 [Stellar]>>> squid_parser_config := CONFIG_GET('PARSER', 'squid')
 29089 [Thread-1] INFO  o.r.Reflections - Reflections took 26765 ms to scan 22 urls, producing 17898 keys and 121518 values
@@ -815,7 +815,7 @@ Returns: The String representation of the config in zookeeper
 1077 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
 Stellar, Go!
 Please note that functions are loading lazily in the background and will be unavailable until loaded fully.
-{es.clustername=metron, es.ip=node1, es.port=9300, es.date.format=yyyy.MM.dd.HH}
+{es.clustername=metron, es.ip=metron-node1, es.port=9300, es.date.format=yyyy.MM.dd.HH}
 [Stellar]>>> # First we get the squid enrichment config from zookeeper.
 [Stellar]>>> # If it is not there, which it is not by default, a suitable default
 [Stellar]>>> # config will be specified.
@@ -1049,7 +1049,7 @@ Returns: The String representation of the config in zookeeper
 1047 [main-EventThread] INFO  o.a.c.f.s.ConnectionStateManager - State change: CONNECTED
 Stellar, Go!
 Please note that functions are loading lazily in the background and will be unavailable until loaded fully.
-{es.clustername=metron, es.ip=node1, es.port=9300, es.date.format=yyyy.MM.dd.HH}
+{es.clustername=metron, es.ip=metron-node1, es.port=9300, es.date.format=yyyy.MM.dd.HH}
 [Stellar]>>> # First we get the squid enrichment config from zookeeper.
 [Stellar]>>> # If it is not there, which it is not by default, a suitable default
 [Stellar]>>> # config will be specified.

@@ -18,8 +18,8 @@
 #
 # ambari uses socket.getfqdn() to find the hostname. with 'localhost.localdomain'
 # in '/etc/hosts' this function will report the hostname as 'localhost.localdomain'
-# rather than 'node1' as would be expected.  other functions like socket.gethostname()
-# will always return 'node1' as expected.  ambari needs to see 'node1' to be able to
+# rather than 'metron-node1' as would be expected.  other functions like socket.gethostname()
+# will always return 'metron-node1' as expected.  ambari needs to see 'metron-node1' to be able to
 # communicate between the master and agents.
 
 - name: Remove ipv4 'localhost.localdomain' from /etc/hosts

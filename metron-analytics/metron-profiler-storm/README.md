@@ -48,8 +48,8 @@ Continuing the previous running example, at this point, you have seen how your p
 
 1.  Start the Stellar Shell with the `-z` command line argument so that a connection to Zookeeper is established.  This is required when  deploying a new profile definition as shown in the steps below.
     ```
-    [root@node1 ~]# source /etc/default/metron
-    [root@node1 ~]# $METRON_HOME/bin/stellar -z $ZOOKEEPER
+    [root@metron-node1 ~]# source /etc/default/metron
+    [root@metron-node1 ~]# $METRON_HOME/bin/stellar -z $ZOOKEEPER
     Stellar, Go!
     [Stellar]>>>
     [Stellar]>>> %functions CONFIG CONFIG_GET, CONFIG_PUT
@@ -183,20 +183,20 @@ This section will describe the steps necessary to manually install the Profiler 
     The installation host must be the same host on which core Metron was installed.  Depending on how you installed Metron, the Profiler RPM might have already been copied to this host with the other Metron RPMs.
 
     ```
-    [root@node1 ~]# find /localrepo/  -name "metron-profiler*.rpm"
+    [root@metron-node1 ~]# find /localrepo/  -name "metron-profiler*.rpm"
     /localrepo/metron-profiler-0.4.1-201707112313.noarch.rpm
     ```
 
 1. Install the RPM.
 
     ```
-    [root@node1 ~]# rpm -ivh metron-profiler-*.noarch.rpm
+    [root@metron-node1 ~]# rpm -ivh metron-profiler-*.noarch.rpm
     Preparing...                ########################################### [100%]
        1:metron-profiler        ########################################### [100%]
     ```
 
     ```
-    [root@node1 ~]# rpm -ql metron-profiler
+    [root@metron-node1 ~]# rpm -ql metron-profiler
     /usr/metron
     /usr/metron/0.4.2
     /usr/metron/0.4.2/bin
@@ -212,8 +212,8 @@ This section will describe the steps necessary to manually install the Profiler 
 
 1. Edit the configuration file located at `$METRON_HOME/config/profiler.properties`.  
     ```
-    kafka.zk=node1:2181
-    kafka.broker=node1:6667
+    kafka.zk=metron-node1:2181
+    kafka.broker=metron-node1:6667
     ```
     * Change `kafka.zk` to refer to Zookeeper in your environment.  
     * Change `kafka.broker` to refer to a Kafka Broker in your environment.

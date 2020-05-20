@@ -61,7 +61,7 @@ This configuration is stored in zookeeper, but looks something like
 ```json
 {
   "es.clustername": "metron",
-  "es.ip": "node1",
+  "es.ip": "metron-node1",
   "es.port": "9300",
   "es.date.format": "yyyy.MM.dd.HH",
   "parser.error.topic": "indexing",
@@ -204,13 +204,13 @@ This has the following options:
 
 Usage examples:
 
-* To dump the existing configs from zookeeper on the singlenode vagrant machine: `$METRON_HOME/bin/zk_load_configs.sh -z node1:2181 -m DUMP`
-* To dump the existing GLOBAL configs from zookeeper on the singlenode vagrant machine: `$METRON_HOME/bin/zk_load_configs.sh -z node1:2181 -m DUMP -c GLOBAL`
-* To push the configs into zookeeper on the singlenode vagrant machine: `$METRON_HOME/bin/zk_load_configs.sh -z node1:2181 -m PUSH -i $METRON_HOME/config/zookeeper`
-* To push only the GLOBAL configs into zookeeper on the singlenode vagrant machine: `$METRON_HOME/bin/zk_load_configs.sh -z node1:2181 -m PUSH -i $METRON_HOME/config/zookeeper -c GLOBAL`
-* To push only the PARSER configs into zookeeper on the singlenode vagrant machine: `$METRON_HOME/bin/zk_load_configs.sh -z node1:2181 -m PUSH -i $METRON_HOME/config/zookeeper -c PARSER`
-* To push only the PARSER 'bro' configs into zookeeper on the singlenode vagrant machine: `$METRON_HOME/bin/zk_load_configs.sh -z node1:2181 -m PUSH -i $METRON_HOME/config/zookeeper -c PARSER -n bro`
-* To pull all configs from zookeeper to the singlenode vagrant machine disk: `$METRON_HOME/bin/zk_load_configs.sh -z node1:2181 -m PULL -o $METRON_HOME/config/zookeeper -f`
+* To dump the existing configs from zookeeper on the singlenode vagrant machine: `$METRON_HOME/bin/zk_load_configs.sh -z metron-node1:2181 -m DUMP`
+* To dump the existing GLOBAL configs from zookeeper on the singlenode vagrant machine: `$METRON_HOME/bin/zk_load_configs.sh -z metron-node1:2181 -m DUMP -c GLOBAL`
+* To push the configs into zookeeper on the singlenode vagrant machine: `$METRON_HOME/bin/zk_load_configs.sh -z metron-node1:2181 -m PUSH -i $METRON_HOME/config/zookeeper`
+* To push only the GLOBAL configs into zookeeper on the singlenode vagrant machine: `$METRON_HOME/bin/zk_load_configs.sh -z metron-node1:2181 -m PUSH -i $METRON_HOME/config/zookeeper -c GLOBAL`
+* To push only the PARSER configs into zookeeper on the singlenode vagrant machine: `$METRON_HOME/bin/zk_load_configs.sh -z metron-node1:2181 -m PUSH -i $METRON_HOME/config/zookeeper -c PARSER`
+* To push only the PARSER 'bro' configs into zookeeper on the singlenode vagrant machine: `$METRON_HOME/bin/zk_load_configs.sh -z metron-node1:2181 -m PUSH -i $METRON_HOME/config/zookeeper -c PARSER -n bro`
+* To pull all configs from zookeeper to the singlenode vagrant machine disk: `$METRON_HOME/bin/zk_load_configs.sh -z metron-node1:2181 -m PULL -o $METRON_HOME/config/zookeeper -f`
 
 ## Patching mechanism
 
@@ -359,7 +359,7 @@ Errors generated in Metron topologies are transformed into JSON format and follo
   "exception": "java.lang.IllegalStateException: Unable to parse Message: ...",
   "failed_sensor_type": "bro",
   "stack": "java.lang.IllegalStateException: Unable to parse Message: ...",
-  "hostname": "node1",
+  "hostname": "metron-node1",
   "source:type": "error",
   "raw_message": "{\"http\": {\"ts\":1488809627.000000.31915,\"uid\":\"C9JpSd2vFAWo3mXKz1\", ...",
   "error_hash": "f7baf053f2d3c801a01d196f40f3468e87eea81788b2567423030100865c5061",
@@ -374,7 +374,7 @@ Each topology can be configured to send error messages to a specific Kafka topic
 ```
 {
   "es.clustername": "metron",
-  "es.ip": "node1",
+  "es.ip": "metron-node1",
   "es.port": "9300",
   "es.date.format": "yyyy.MM.dd.HH",
   "parser.error.topic": "indexing"

@@ -32,7 +32,7 @@ $HADOOP_PREFIX/bin/hdfs dfs -mkdir -p /apps/metron
 $HADOOP_PREFIX/bin/hdfs dfs -mkdir -p /apps/metron/geo/default
 
 # download geo database to hdfs
-curl http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz | $HADOOP_PREFIX/bin/hdfs dfs -put - /apps/metron/geo/default/GeoLite2-City.mmdb.gz
+curl https://storage.googleapis.com/metron-pub-files/GeoLite2-City_20200519.tar.gz | $HADOOP_PREFIX/bin/hdfs dfs -put - /apps/metron/geo/default/GeoLite2-City.mmdb.gz
 
 # pass through CMD as PID 1
 exec "$@"

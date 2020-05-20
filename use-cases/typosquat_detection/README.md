@@ -117,9 +117,9 @@ In the following demo, we will:
 
 We assume that the following environment variables are set:
 * `METRON_HOME` - the home directory for metron
-* `ZOOKEEPER` - The zookeeper quorum (comma separated with port specified: e.g. `node1:2181` for full-dev)
-* `BROKERLIST` - The Kafka broker list (comma separated with port specified: e.g. `node1:6667` for full-dev)
-* `ES_HOST` - The elasticsearch master (and port) e.g. `node1:9200` for full-dev.
+* `ZOOKEEPER` - The zookeeper quorum (comma separated with port specified: e.g. `metron-node1:2181` for full-dev)
+* `BROKERLIST` - The Kafka broker list (comma separated with port specified: e.g. `metron-node1:6667` for full-dev)
+* `ES_HOST` - The elasticsearch master (and port) e.g. `metron-node1:9200` for full-dev.
 
 Also, this does not assume that you are using a kerberized cluster.  If you are, then the parser start command will adjust slightly to include the security protocol.
 
@@ -439,7 +439,7 @@ cat /var/log/squid/access.log | /usr/hdp/current/kafka-broker/bin/kafka-console-
 
 We should now have data in our elasticsearch indices, so let's investigate via the alerts UI.   
 We can visit the Alerts UI (find the link from Ambari if not on full-dev.  If on full-dev, go 
-[here](http://node1:4201/alerts-list).
+[here](http://metron-node1:4201/alerts-list).
 
 From there you should see the following data from squid with one as an alert and the other not
 

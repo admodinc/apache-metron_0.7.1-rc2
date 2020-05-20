@@ -132,7 +132,7 @@ General notes on the installation of Pycapa.
 1. Copy the Pycapa source files from the Metron project to your chosen $PYCAPA_HOME (e.g. `/opt/pycapa`). You should have pycapa source files in `/opt/pycapa/pycapa`.
 
     ```
-    scp -r metron-sensors/pycapa root@node1:$PYCAPA_HOME
+    scp -r metron-sensors/pycapa root@metron-node1:$PYCAPA_HOME
     ```
 
 1. Install Pycapa using the `pycapa-venv` virtualenv you created earlier.

@@ -296,7 +296,7 @@ class ClusterInfo:
                           type="string",
                           dest="ambari_host",
                           help="Connect to Ambari via the supplied host:port",
-                          default="node1:8080",
+                          default="metron-node1:8080",
                           metavar="HOST:PORT")
         parser.add_option("-c", "--cluster-name", 
                           action="store",
@@ -317,21 +317,21 @@ class ClusterInfo:
                           type="string",
                           dest="storm_host",
                           help="Connect to Storm via the supplied host:port",
-                          default="node1:8744",
+                          default="metron-node1:8744",
                           metavar="HOST:PORT")
         parser.add_option("-b", "--broker_list", 
                           action="store",
                           type="string",
                           dest="broker_list",
                           help="Connect to Kafka via the supplied comma-delimited host:port list",
-                          default="node1:6667",
+                          default="metron-node1:6667",
                           metavar="HOST1:PORT,HOST2:PORT")
         parser.add_option("-z", "--zookeeper_quorum", 
                           action="store",
                           type="string",
                           dest="zookeeper_quorum",
                           help="Connect to Zookeeper via the supplied comma-delimited host:port quorum list",
-                          default="node1:2181",
+                          default="metron-node1:2181",
                           metavar="HOST1:PORT,HOST2:PORT")
         parser.add_option("-m", "--metron_home", 
                           action="store",

@@ -61,7 +61,7 @@ The Stellar Client API can be configured correspondingly by setting the followin
 
     ```
     $ cd $METRON_HOME
-    $ bin/zk_load_configs.sh -m PUSH -i config/zookeeper/ -z node1:2181
+    $ bin/zk_load_configs.sh -m PUSH -i config/zookeeper/ -z metron-node1:2181
     ```
 
 Any of these six Client configuration parameters may be overridden at run time using the `config_overrides` Map argument in PROFILE_GET. The primary use case is 
@@ -376,13 +376,13 @@ PROFILE_GET('profile1', 'entity1', PROFILE_FIXED(30, 'DAYS', {'profiler.client.p
 
 These instructions step through the process of using the Stellar Client API on a live cluster.  These instructions assume that the 'Getting Started' instructions included with the [Metron Profiler](../metron-profiler) have been followed.  This will create a Profile called 'test' whose data will be retrieved with the Stellar Client API.
 
-To validate that everything is working, login to the server hosting Metron.  We will use the Stellar Shell to replicate the execution environment of Stellar running in a Storm topology, like Metron's Parser or Enrichment topology.  Replace 'node1:2181' with the URL to a Zookeeper Broker.  
+To validate that everything is working, login to the server hosting Metron.  We will use the Stellar Shell to replicate the execution environment of Stellar running in a Storm topology, like Metron's Parser or Enrichment topology.  Replace 'metron-node1:2181' with the URL to a Zookeeper Broker.  
 
 ```
-[root@node1 0.4.2]# bin/stellar -z node1:2181
+[root@metron-node1 0.4.2]# bin/stellar -z metron-node1:2181
 Stellar, Go!
 Please note that functions are loading lazily in the background and will be unavailable until loaded fully.
-{es.clustername=metron, es.ip=node1, es.port=9300, es.date.format=yyyy.MM.dd.HH}
+{es.clustername=metron, es.ip=metron-node1, es.port=9300, es.date.format=yyyy.MM.dd.HH}
 
 [Stellar]>>> ?PROFILE_GET
 Functions loaded, you may refer to functions now...

@@ -108,9 +108,9 @@ For this demonstration, we will
 
 We assume that the following environment variables are set:
 * `METRON_HOME` - the home directory for metron
-* `ZOOKEEPER` - The zookeeper quorum (comma separated with port specified: e.g. `node1:2181` for full-dev)
-* `BROKERLIST` - The Kafka broker list (comma separated with port specified: e.g. `node1:6667` for full-dev)
-* `ES_HOST` - The elasticsearch master (and port) e.g. `node1:9200` for full-dev.
+* `ZOOKEEPER` - The zookeeper quorum (comma separated with port specified: e.g. `metron-node1:2181` for full-dev)
+* `BROKERLIST` - The Kafka broker list (comma separated with port specified: e.g. `metron-node1:6667` for full-dev)
+* `ES_HOST` - The elasticsearch master (and port) e.g. `metron-node1:9200` for full-dev.
 
 Also, this does not assume that you are using a kerberized cluster.  If you are, then the parser start command will adjust slightly to include the security protocol.
 

@@ -16,25 +16,25 @@
 #
 
 [ambari_master]
-node1
+metron-node1
 
 [ambari_slave]
-node1
+metron-node1
 
 [metron]
-node1
+metron-node1
 
 [search]
-node1
+metron-node1
 
 [sensors]
-node1
+metron-node1
 
 [web]
-node1
+metron-node1
 
 [zeppelin]
-node1
+metron-node1
 
 [monit:children]
 sensors

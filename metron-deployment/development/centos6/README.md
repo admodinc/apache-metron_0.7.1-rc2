@@ -81,8 +81,8 @@ Any platform that supports these tools is suitable, but the following instructio
 
 Navigate to the following resources to explore your newly minted Apache Metron environment.
 
-* [Metron Alerts](http://node1:4201) credentials: user/password
-* [Ambari](http://node1:8080) credentials: admin/admin
+* [Metron Alerts](http://metron-node1:4201) credentials: user/password
+* [Ambari](http://metron-node1:8080) credentials: admin/admin
 
 Connecting to the host through SSH is as simple as running the following command.
 ```

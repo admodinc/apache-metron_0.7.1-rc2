@@ -346,7 +346,7 @@ There are two steps to resolve this issue.  First is to update the Elasticsearch
 Make sure to set the ELASTICSEARCH variable appropriately. $SENSOR can contain wildcards, so if rollover has occurred, it's not necessary to do each index individually. The example here appends `index*` to get all indexes for the provided sensor.
 
 ```
-export ELASTICSEARCH="node1"
+export ELASTICSEARCH="metron-node1"
 export SENSOR="bro"
 curl -XGET "http://${ELASTICSEARCH}:9200/_template/${SENSOR}_index*?pretty=true" -o "${SENSOR}.template"
 sed -i '' '2d;$d' ./${SENSOR}.template

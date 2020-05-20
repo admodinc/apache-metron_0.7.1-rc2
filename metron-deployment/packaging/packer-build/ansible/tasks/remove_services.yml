@@ -17,7 +17,7 @@
 ---
 - name: Remove Secondary Namenode
   uri:
-    url: "http://{{ambari_host}}:{{ambari_port}}/api/v1/clusters/metron_cluster/hosts/node1/host_components/SECONDARY_NAMENODE"
+    url: "http://{{ambari_host}}:{{ambari_port}}/api/v1/clusters/metron_cluster/hosts/metron-node1/host_components/SECONDARY_NAMENODE"
     method: DELETE
     HEADER_X-Requested-By: "{{ ambari_user }}"
     user: "{{ambari_user }}"

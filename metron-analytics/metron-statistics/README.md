@@ -477,25 +477,25 @@ duration by changing `profiler.period.duration=15` to `profiler.period.duration=
 2. Stopping all other parser topologies via monit
 
 3. Create the `mad` kafka topic by executing:
-`/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper node1:2181 --create --topic mad --partitions 1 --replication-factor 1`
+`/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper metron-node1:2181 --create --topic mad --partitions 1 --replication-factor 1`
 
 4. Push the modified configs by executing:
-`$METRON_HOME/bin/zk_load_configs.sh --mode PUSH -z node1:2181 -i $METRON_HOME/config/zookeeper/`
+`$METRON_HOME/bin/zk_load_configs.sh --mode PUSH -z metron-node1:2181 -i $METRON_HOME/config/zookeeper/`
 
 5. Start the profiler by executing:
 `$METRON_HOME/bin/start_profiler_topology.sh`
 
 6. Start the parser topology by executing:
-`$METRON_HOME/bin/start_parser_topology.sh -k node1:6667 -z node1:2181 -s mad`
+`$METRON_HOME/bin/start_parser_topology.sh -k metron-node1:6667 -z metron-node1:2181 -s mad`
 
 7. Ensure that the enrichment and indexing topologies are started.  If not, then start those via monit or by hand.
 
 8. Generate data into kafka by executing the following for at least 10 minutes:
-`~/rand_gen.py 0 1 1 | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list node1:6667 --topic mad`
+`~/rand_gen.py 0 1 1 | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list metron-node1:6667 --topic mad`
 Note: if you chose the use the t-distribution script above, you would adjust the parameters of the `rand_gen.py` script accordingly.
 
 9. Stop the above with ctrl-c and send in an obvious outlier into kafka:
-`echo "1000" | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list node1:6667 --topic mad`
+`echo "1000" | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list metron-node1:6667 --topic mad`
 
 You should be able to find the outlier via the elasticsearch head plugin by
 searching for the messages where `is_alert` is `true`.

@@ -164,10 +164,10 @@ su - hdfs -c "hadoop fs -chown metron:metron /user/metron"
 ```
 
 Now let's start MaaS and deploy the Mock DGA Service:
-* Start MaaS via `$METRON_HOME/bin/maas_service.sh -zq node1:2181`
-* Start one instance of the mock DGA model with 512M of memory via `$METRON_HOME/bin/maas_deploy.sh -zq node1:2181 -lmp $HOME/mock_dga -hmp /user/$USER/models -mo ADD -m 512 -n dga -v 1.0 -ni 1`
+* Start MaaS via `$METRON_HOME/bin/maas_service.sh -zq metron-node1:2181`
+* Start one instance of the mock DGA model with 512M of memory via `$METRON_HOME/bin/maas_deploy.sh -zq metron-node1:2181 -lmp $HOME/mock_dga -hmp /user/$USER/models -mo ADD -m 512 -n dga -v 1.0 -ni 1`
 * As a sanity check:
-  * Ensure that the model is running via `$METRON_HOME/bin/maas_deploy.sh -zq node1:2181 -mo LIST`.  You should see `Model dga @ 1.0` be displayed and under that a url such as (but not exactly) `http://node1:36161`
+  * Ensure that the model is running via `$METRON_HOME/bin/maas_deploy.sh -zq metron-node1:2181 -mo LIST`.  You should see `Model dga @ 1.0` be displayed and under that a url such as (but not exactly) `http://metron-node1:36161`
   * Try to hit the model via curl: `curl 'http://localhost:36161/apply?host=caseystella.com'` and ensure that it returns a JSON map indicating the domain is malicious.
 
 ## Adjust Configurations for Squid to Call Model
@@ -217,16 +217,16 @@ Now that we have a deployed model, let's adjust the configurations for the Squid
   }
 }
 ```
-* Upload new configs via `$METRON_HOME/bin/zk_load_configs.sh --mode PUSH -i $METRON_HOME/config/zookeeper -z node1:2181`
-* Make the Squid topic in kafka via `/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper node1:2181 --create --topic squid --partitions 1 --replication-factor 1`
+* Upload new configs via `$METRON_HOME/bin/zk_load_configs.sh --mode PUSH -i $METRON_HOME/config/zookeeper -z metron-node1:2181`
+* Make the Squid topic in kafka via `/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper metron-node1:2181 --create --topic squid --partitions 1 --replication-factor 1`
 
 ## Start Topologies and Send Data
 Now we need to start the topologies and send some data:
-* Start the squid topology via `$METRON_HOME/bin/start_parser_topology.sh -k node1:6667 -z node1:2181 -s squid`
+* Start the squid topology via `$METRON_HOME/bin/start_parser_topology.sh -k metron-node1:6667 -z metron-node1:2181 -s squid`
 * Generate some data via the squid client:
   * Generate a legit example: `squidclient http://yahoo.com`
   * Generate a malicious example: `squidclient http://cnn.com`
-* Send the data to kafka via `cat /var/log/squid/access.log | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list node1:6667 --topic squid`
-* Browse the data in elasticsearch via the ES Head plugin @ [http://node1:9200/_plugin/head/](http://node1:9200/_plugin/head/) and verify that in the squid index you have two documents
+* Send the data to kafka via `cat /var/log/squid/access.log | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list metron-node1:6667 --topic squid`
+* Browse the data in elasticsearch via the ES Head plugin @ [http://metron-node1:9200/_plugin/head/](http://metron-node1:9200/_plugin/head/) and verify that in the squid index you have two documents
   * One from `yahoo.com` which does not have `is_alert` set and does have `is_malicious` set to `legit`
   * One from `cnn.com` which does have `is_alert` set to `true`, `is_malicious` set to `malicious` and `threat:triage:level` set to 100

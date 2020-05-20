@@ -139,10 +139,10 @@ This property looks like, the following for a vagrant install
 ```
 {
   "es.clustername": "metron",
-  "es.ip": "node1",
+  "es.ip": "metron-node1",
   "es.port": "9300",
   "es.date.format": "yyyy.MM.dd.HH",
-  "stellar.function.paths" : "hdfs://node1:8020/apps/metron/stellar/.*.jar",
+  "stellar.function.paths" : "hdfs://metron-node1:8020/apps/metron/stellar/.*.jar",
 }
 ```
 
@@ -150,8 +150,8 @@ The `stellar.function.paths` property takes a comma separated list of URIs or UR
 Also, note path is prefaced by the HDFS default name, which, if you do not know, can be found by executing,
 `hdfs getconf -confKey fs.default.name`, such as
 ```
-[root@node1 ~]# hdfs getconf -confKey fs.default.name
-hdfs://node1:8020
+[root@metron-node1 ~]# hdfs getconf -confKey fs.default.name
+hdfs://metron-node1:8020
 ```
 ### Use the Function
 
@@ -162,7 +162,7 @@ Beyond that, let's take a look at it in the REPL:
 ```
 Stellar, Go!
 Please note that functions are loading lazily in the background and will be unavailable until loaded fully.
-{es.clustername=metron, es.ip=node1, es.port=9300, es.date.format=yyyy.MM.dd.HH, stellar.function.paths=hdfs://node1:8020/apps/metron/stellar/.*.jar, profiler.client.period.duration=1, profiler.client.period.duration.units=MINUTES}
+{es.clustername=metron, es.ip=metron-node1, es.port=9300, es.date.format=yyyy.MM.dd.HH, stellar.function.paths=hdfs://metron-node1:8020/apps/metron/stellar/.*.jar, profiler.client.period.duration=1, profiler.client.period.duration.units=MINUTES}
 [Stellar]>>> # Get the help for NOW
 [Stellar]>>> ?NOW
 Functions loaded, you may refer to functions now...

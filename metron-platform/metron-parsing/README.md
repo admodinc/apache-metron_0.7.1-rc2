@@ -396,7 +396,7 @@ If the telemetry message that failed contains metadata, this metadata is include
   "message": "Unable to parse Message: \"this is an invalid synthetic message\" }",
   "source.type": "error",
   "failed_sensor_type": "bro",
-  "hostname": "node1",
+  "hostname": "metron-node1",
   "error_type": "parser_error",
   "guid": "563d8d2a-1493-4758-be2f-5613bfd2d615",
   "timestamp": 1548366516634,

@@ -105,9 +105,9 @@ public class ProfileWriter {
     ColumnBuilder columnBuilder = new ValueOnlyColumnBuilder();
 
     Configuration config = HBaseConfiguration.create();
-    config.set("hbase.master.hostname", "node1");
-    config.set("hbase.regionserver.hostname", "node1");
-    config.set("hbase.zookeeper.quorum", "node1");
+    config.set("hbase.master.hostname", "metron-node1");
+    config.set("hbase.regionserver.hostname", "metron-node1");
+    config.set("hbase.zookeeper.quorum", "metron-node1");
 
     HTableProvider provider = new HTableProvider();
     HTableInterface table = provider.getTable(config, "profiler");

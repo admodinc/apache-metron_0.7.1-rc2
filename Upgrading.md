@@ -100,7 +100,7 @@ Two steps must be done for each sensor, but not on each index for each sensor.
 First is to update the Elasticsearch template for each sensor, so any new indices have the field:
 
 ```
-export ELASTICSEARCH="node1"
+export ELASTICSEARCH="metron-node1"
 export SENSOR="bro"
 curl -XGET "http://${ELASTICSEARCH}:9200/_template/${SENSOR}_index*?pretty=true" -o "${SENSOR}.template"
 sed -i '2d;$d' ./${SENSOR}.template

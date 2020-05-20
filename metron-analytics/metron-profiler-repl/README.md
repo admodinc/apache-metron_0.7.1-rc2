@@ -36,7 +36,7 @@ This section describes how to get started using the Profiler in the Stellar REPL
 
 1. Launch the Stellar REPL.
 	```
-	[root@node1 ~]# $METRON_HOME/bin/stellar
+	[root@metron-node1 ~]# $METRON_HOME/bin/stellar
 	Stellar, Go!
 	[Stellar]>>>
 	```

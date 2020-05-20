@@ -6,7 +6,7 @@
   "blocks": {},
   "nodes": {
     "RAGvGbRETRa-8eXfofW1ag": {
-      "name": "node1",
+      "name": "metron-node1",
       "transport_address": "10.0.2.15:9300",
       "attributes": {
         "data": "1",

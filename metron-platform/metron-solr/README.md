@@ -94,7 +94,7 @@ will also spin up an embedded Zookeeper instance at port 9983. More information 
 
 Solr can also be installed using [HDP Search 3](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.4/bk_solr-search-installation/content/ch_hdp_search_30.html).  HDP Search 3 sets the Zookeeper root to 
 `/solr` so this will need to be added to each url in the comma-separated list in Ambari UI -> Services -> Metron -> Configs -> Index Settings -> Solr Zookeeper Urls.  For example, in full dev
-this would be `node1:2181/solr`.
+this would be `metron-node1:2181/solr`.
 
 ## Enabling Solr
 
@@ -146,7 +146,7 @@ If any copy fields are defined, stored and docValues should be set to false.
 Convenience scripts are provided with Metron to create and delete collections.  Ambari uses these scripts to automatically create collections.  To use them outside of Ambari, a few environment variables must be set first:
 ```
 # Path to the zookeeper node used by Solr
-export ZOOKEEPER=node1:2181/solr
+export ZOOKEEPER=metron-node1:2181/solr
 # Set to true if Kerberos is enabled
 export SECURITY_ENABLED=true 
 ```

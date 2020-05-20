@@ -83,7 +83,7 @@ Here are some tips for working with parser aggregation while the UI feature is b
 * **How are parsers picked up by the UI?:** This is based entirely on what is currently stored in the Zookeeper configs. See [Management Utility](../metron-platform/metron-common#management-utility) "DUMP" option with "-c PARSER" to see all of what is currently loaded. The management UI does not
 update the configurations stored locally on disk, so Zookeeper is the source of truth.
 
-* **Removing an existing aggregation:** In the [Ambari UI](http://node1:8080) click on the Metron serice and select "Metron Parsers." Select "stop" from the dropdown for the parser component. Click "back," "configs," and then navigate to "Parsers." In the text field option labeled "parsers".
+* **Removing an existing aggregation:** In the [Ambari UI](http://metron-node1:8080) click on the Metron serice and select "Metron Parsers." Select "stop" from the dropdown for the parser component. Click "back," "configs," and then navigate to "Parsers." In the text field option labeled "parsers".
 Remove the double quotes from around the listed parsers. Save and choose "Restart" when prompted. This will deploy three individual parsers rather than a single aggregated parser: bro, snort, and yaf. Be aware, you may need to shut down other topologies to free up resources so that you can
 run the parsers without aggregation. Stopping the profiler, pcap, or batch_indexing are a few options that will still allow data to pass through the system end-to-end.
 

@@ -595,9 +595,9 @@ Set the following env vars accordingly for your cluster. This is how we would co
 ```
 export HDP_HOME=/usr/hdp/current
 export KAFKA_HOME=$HDP_HOME/kafka-broker
-export STORM_UI=http://node1:8744
-export ELASTIC=http://node1:9200
-export ZOOKEEPER=node1:2181
+export STORM_UI=http://metron-node1:8744
+export ELASTIC=http://metron-node1:9200
+export ZOOKEEPER=metron-node1:2181
 export METRON_VERSION=0.7.1
 export METRON_HOME=/usr/metron/${METRON_VERSION}
 ```

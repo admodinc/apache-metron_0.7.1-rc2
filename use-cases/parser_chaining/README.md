@@ -54,9 +54,9 @@ the data to parse.
 
 We assume that the following environment variables are set:
 * `METRON_HOME` - the home directory for metron
-* `ZOOKEEPER` - The zookeeper quorum (comma separated with port specified: e.g. `node1:2181` for full-dev)
-* `BROKERLIST` - The Kafka broker list (comma separated with port specified: e.g. `node1:6667` for full-dev)
-* `ES_HOST` - The elasticsearch master (and port) e.g. `node1:9200` for full-dev.
+* `ZOOKEEPER` - The zookeeper quorum (comma separated with port specified: e.g. `metron-node1:2181` for full-dev)
+* `BROKERLIST` - The Kafka broker list (comma separated with port specified: e.g. `metron-node1:6667` for full-dev)
+* `ES_HOST` - The elasticsearch master (and port) e.g. `metron-node1:9200` for full-dev.
 
 Before editing configurations, be sure to pull the configs from zookeeper locally via
 ```

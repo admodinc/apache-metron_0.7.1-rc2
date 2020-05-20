@@ -127,17 +127,17 @@ We have added the following as part of the threat intel:
 
 Please note that foo and ALL_CAPS will be applied in separate workers due to them being in separate groups.
 
-* Upload new configs via `$METRON_HOME/bin/zk_load_configs.sh --mode PUSH -i $METRON_HOME/config/zookeeper -z node1:2181`
-* Make the Squid topic in kafka via `/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper node1:2181 --create --topic squid --partitions 1 --replication-factor 1`
+* Upload new configs via `$METRON_HOME/bin/zk_load_configs.sh --mode PUSH -i $METRON_HOME/config/zookeeper -z metron-node1:2181`
+* Make the Squid topic in kafka via `/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper metron-node1:2181 --create --topic squid --partitions 1 --replication-factor 1`
 
 ## Start Topologies and Send Data
 Now we need to start the topologies and send some data:
-* Start the squid topology via `$METRON_HOME/bin/start_parser_topology.sh -k node1:6667 -z node1:2181 -s squid`
+* Start the squid topology via `$METRON_HOME/bin/start_parser_topology.sh -k metron-node1:6667 -z metron-node1:2181 -s squid`
 * Generate some data via the squid client:
   * `squidclient http://yahoo.com`
   * `squidclient http://cnn.com`
-* Send the data to kafka via `cat /var/log/squid/access.log | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list node1:6667 --topic squid`
-* Browse the data in elasticsearch via the ES Head plugin @ [http://node1:9200/_plugin/head/](http://node1:9200/_plugin/head/) and verify that in the squid index you have two documents
+* Send the data to kafka via `cat /var/log/squid/access.log | /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list metron-node1:6667 --topic squid`
+* Browse the data in elasticsearch via the ES Head plugin @ [http://metron-node1:9200/_plugin/head/](http://metron-node1:9200/_plugin/head/) and verify that in the squid index you have two documents
 * Ensure that the documents have new fields `foo`, `bar` and `ALL_CAPS` with values as described above.
 
 Note that we could have used any Stellar statements here, including calling out to HBase via `ENRICHMENT_GET` and `ENRICHMENT_EXISTS` or even calling a machine learning model via [Model as a Service](../../../metron-analytics/metron-maas-service).

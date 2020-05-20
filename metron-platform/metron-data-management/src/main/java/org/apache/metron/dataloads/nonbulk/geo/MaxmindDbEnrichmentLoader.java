@@ -46,8 +46,8 @@ import java.util.Map;
 public class MaxmindDbEnrichmentLoader {
 
   private static final String DEFAULT_RETRIES = "2";
-  private static final String GEO_CITY_URL_DEFAULT = "http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz";
-  private static final String ASN_URL_DEFAULT = "http://geolite.maxmind.com/download/geoip/database/GeoLite2-ASN.tar.gz";
+  private static final String GEO_CITY_URL_DEFAULT = "https://storage.googleapis.com/metron-pub-files/GeoLite2-City_20200519.tar.gz";
+  private static final String ASN_URL_DEFAULT = "https://storage.googleapis.com/metron-pub-files/GeoLite2-ASN_20200519.tar.gz";
 
   private static abstract class OptionHandler implements Function<String, Option> {
   }

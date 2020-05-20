@@ -25,17 +25,17 @@ spring:
       ddl-auto: update
 
 zookeeper:
-  url:  node1:2181
+  url:  metron-node1:2181
 
 kafka:
   broker:
-    url: node1:6667
+    url: metron-node1:6667
   security:
     protocol: PLAINTEXT
 
 hdfs:
   namenode:
-    url: hdfs://node1:8020
+    url: hdfs://metron-node1:8020
 
 grok:
   path:
@@ -43,7 +43,7 @@ grok:
 
 storm:
   ui:
-    url:   http://node1:8744
+    url:   http://metron-node1:8744
   parser:
     script.path: /usr/metron/${metron.version}/bin/start_parser_topology.sh
   enrichment:
@@ -59,7 +59,7 @@ kerberos:
 
 ldap:
   provider:
-    url: ldap://node1:33389
+    url: ldap://metron-node1:33389
     userdn: uid=admin,ou=people,dc=hadoop,dc=apache,dc=org
     password: "admin-password"
   user:

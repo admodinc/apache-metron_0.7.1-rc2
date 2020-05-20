@@ -445,7 +445,7 @@ The following command can be used to better understand the physical layout of th
 $ lscpu
 ...
 NUMA node0 CPU(s):     0-7,16-23
-NUMA node1 CPU(s):     8-15,24-31
+NUMA metron-node1 CPU(s):     8-15,24-31
 ```
 
 In this example `enp9s0f0` is located on NUMA node 0 and is local to the logical cores 0-7 and 16-23.  You should choose worker cores from this list.

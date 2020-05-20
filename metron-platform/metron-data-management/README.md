@@ -170,7 +170,7 @@ As an example, we will be providing a CSV list of top domains as an enrichment a
 ```
 {
   "config" : {
-    "zk_quorum" : "node1:2181",
+    "zk_quorum" : "metron-node1:2181",
     "columns" : {
        "rank" : 0,
        "domain" : 1
@@ -365,7 +365,7 @@ The parameters for the utility are as follows:
 | Short Code | Long Code           | Is Required? | Description                                                                                         |
 |------------|---------------------|--------------|-----------------------------------------------------------------------------------------------------|
 | -h         |                     | No           | Generate the help screen/set of options                                                             |
-| -g         | --geo_url           | No           | GeoIP URL - defaults to http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz     |
+| -g         | --geo_url           | No           | GeoIP URL - defaults to https://storage.googleapis.com/metron-pub-files/GeoLite2-City_20200519.tar.gz     |
 | -r         | --remote_dir        | No           | HDFS directory to land formatted GeoIP City file - defaults to /apps/metron/geo/\<epoch millis\>/   |
 | -ra        | --remote_asn_dir    | No           | HDFS directory to land formatted GeoIP ASN file - defaults to /apps/metron/asn/\<epoch millis\>/    |
 | -re        | --retries           | No           | Number of GeoLite2 database download retries, after an initial failure.                             |

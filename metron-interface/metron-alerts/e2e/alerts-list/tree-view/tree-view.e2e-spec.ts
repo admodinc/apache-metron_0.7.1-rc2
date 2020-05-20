@@ -126,9 +126,9 @@ describe('Test spec for tree view', function () {
   xit('should have group details for single group by', async function() : Promise<any> {
     let dashRowValues = ['0', 'alerts_ui_e2e', 'ALERTS', '169'];
     let row1_page1 = ['-','acf5a641-9...a316e14fbe', '2017-09-13 17:59:35', 'alerts_ui_e2e',
-                        '192.168.66.1', '', '192.168.66.121', 'node1', 'NEW'];
+                        '192.168.66.1', '', '192.168.66.121', 'metron-node1', 'NEW'];
     let row1_page2 = ['-', '3097a3d9-f...1cfb870355', '2017-09-13 18:00:22', 'alerts_ui_e2e',
-                        '192.168.66.1', '','192.168.66.121', 'node1', 'NEW'];
+                        '192.168.66.1', '','192.168.66.121', 'metron-node1', 'NEW'];
 
     await page.unGroup();
     await page.selectGroup('source:type');

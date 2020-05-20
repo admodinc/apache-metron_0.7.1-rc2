@@ -76,11 +76,11 @@ Note how the flow diagrams for Static asset requests and Rest requests (through 
 
 ## Enabling Knox for Metron
 
-Follow the instructions in the next 3 sections to enable Knox for Metron.  The new Knox urls will be similar to (substitute the Knox host/port in your environment for `node1:8443`):
+Follow the instructions in the next 3 sections to enable Knox for Metron.  The new Knox urls will be similar to (substitute the Knox host/port in your environment for `metron-node1:8443`):
 
-- Metron Alerts UI - https://node1:8443/gateway/metron/metron-alerts/
-- Metron Management UI - https://node1:8443/gateway/metron/metron-management/sensors
-- Metron REST - https://node1:8443/gateway/metron/metron-rest/swagger-ui.html
+- Metron Alerts UI - https://metron-node1:8443/gateway/metron/metron-alerts/
+- Metron Management UI - https://metron-node1:8443/gateway/metron/metron-management/sensors
+- Metron REST - https://metron-node1:8443/gateway/metron/metron-rest/swagger-ui.html
 
 
 
@@ -105,7 +105,7 @@ A Metron Client should be installed anywhere a Knox Gateway is installed.  It is
 After Metron Client components have been installed on the appropriate hosts, there are a couple settings that need to be changed in the Ambari "Security" tab.  
 First the Knox SSO public key needs to be read from Knox.  Run the following command on a Knox Gateway to get the key:
 ```
-openssl s_client -connect node1:8443 < /dev/null | openssl x509 | grep -v 'CERTIFICATE' | paste -sd "" -
+openssl s_client -connect metron-node1:8443 < /dev/null | openssl x509 | grep -v 'CERTIFICATE' | paste -sd "" -
 ```
 The `Knox SSO Public Key` Ambari property should be set to the output of that command.  In the same section, set the `Knox Enabled` setting to "ON".  
 
@@ -139,7 +139,7 @@ The json object should look like this in full dev:
     "label": "Swagger UI",
     "requires_user_name": "false",
     "component_name": "METRON_REST",
-    "url":"https://node1:8443/gateway/metron/metron-rest/swagger-ui.html",
+    "url":"https://metron-node1:8443/gateway/metron/metron-rest/swagger-ui.html",
     "port":{
       "http_property": "metron_rest_port",
       "http_default_port": "8082",

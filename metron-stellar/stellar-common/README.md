@@ -1336,7 +1336,7 @@ To run the Stellar Shell from within a deployed Metron cluster, run the followin
 $ $METRON_HOME/bin/stellar
 
 Stellar, Go!
-{es.clustername=metron, es.ip=node1, es.port=9300, es.date.format=yyyy.MM.dd.HH}
+{es.clustername=metron, es.ip=metron-node1, es.port=9300, es.date.format=yyyy.MM.dd.HH}
 
 [Stellar]>>> %functions
 BLOOM_ADD, BLOOM_EXISTS, BLOOM_INIT, BLOOM_MERGE, DAY_OF_MONTH, DAY_OF_WEEK, DAY_OF_YEAR, ...
@@ -1381,9 +1381,9 @@ Attempts to connect to Zookeeper and read the Metron global configuration.  Stel
 If specified, then the classpath may be augmented by the paths specified in the stellar config in the global config.
 
 ```
-$ $METRON_HOME/bin/stellar -z node1:2181
+$ $METRON_HOME/bin/stellar -z metron-node1:2181
 Stellar, Go!
-{es.clustername=metron, es.ip=node1, es.port=9300, es.date.format=yyyy.MM.dd.HH}
+{es.clustername=metron, es.ip=metron-node1, es.port=9300, es.date.format=yyyy.MM.dd.HH}
 [Stellar]>>> 
 ```
 
@@ -1453,7 +1453,7 @@ Most of Metron's functional components have access to what is called the global 
 
 ```
 [Stellar]>>> %globals
-{es.clustername=metron, es.ip=node1:9300, es.date.format=yyyy.MM.dd.HH, parser.error.topic=indexing, update.hbase.table=metron_update, update.hbase.cf=t}
+{es.clustername=metron, es.ip=metron-node1:9300, es.date.format=yyyy.MM.dd.HH, parser.error.topic=indexing, update.hbase.table=metron_update, update.hbase.cf=t}
 ```
 
 #### `%define`
@@ -1461,10 +1461,10 @@ Most of Metron's functional components have access to what is called the global 
 Defines a global configuration value in the current shell session.  This value will be forgotten once the session is ended.
 
 ```
-[Stellar]>>> %define bootstrap.servers := "node1:6667"
-node1:6667
+[Stellar]>>> %define bootstrap.servers := "metron-node1:6667"
+metron-node1:6667
 [Stellar]>>> %globals
-{bootstrap.servers=node1:6667}
+{bootstrap.servers=metron-node1:6667}
 ``` 
 
 #### `%undefine`
@@ -1624,7 +1624,7 @@ This path is a comma separated list of
 ```json
 {
  ...
-  "stellar.function.paths" : "hdfs://node1:8020/apps/metron/stellar/metron-management-0.4.2.jar, hdfs://node1:8020/apps/metron/3rdparty/.*.jar"
+  "stellar.function.paths" : "hdfs://metron-node1:8020/apps/metron/stellar/metron-management-0.4.2.jar, hdfs://metron-node1:8020/apps/metron/3rdparty/.*.jar"
 }
 ```
 
@@ -1713,8 +1713,8 @@ Perform a GET request using basic authentication:
 
 Perform a GET request using a proxy:
 ```
-[Stellar]>>> config := {'proxy.host': 'node1', 'proxy.port': 3128, 'proxy.basic.auth.user': 'user', 'proxy.basic.auth.password.path': '/proxy/password/path'}
-{proxy.basic.auth.password.path=/proxy/password/path, proxy.port=3128, proxy.host=node1, proxy.basic.auth.user=user}
+[Stellar]>>> config := {'proxy.host': 'metron-node1', 'proxy.port': 3128, 'proxy.basic.auth.user': 'user', 'proxy.basic.auth.password.path': '/proxy/password/path'}
+{proxy.basic.auth.password.path=/proxy/password/path, proxy.port=3128, proxy.host=metron-node1, proxy.basic.auth.user=user}
 [Stellar]>>> REST_GET('http://httpbin.org/get', config)
 {args={}, headers={Accept=application/json, Accept-Encoding=gzip,deflate, Cache-Control=max-age=259200, Connection=close, Host=httpbin.org, User-Agent=Apache-HttpClient/4.3.2 (java 1.5)}, origin=127.0.0.1, 136.62.241.236, url=http://httpbin.org/get}
 ```

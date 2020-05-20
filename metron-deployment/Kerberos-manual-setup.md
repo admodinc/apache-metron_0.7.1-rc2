@@ -38,15 +38,15 @@ Setup
 
 1. Deploy the [development environment.](development/centos6/README.md).
 
-1. Export the following environment variables.  These need to be set for the remainder of the instructions. Replace `node1` with the appropriate hosts, if you are running Metron anywhere other than Vagrant.
+1. Export the following environment variables.  These need to be set for the remainder of the instructions. Replace `metron-node1` with the appropriate hosts, if you are running Metron anywhere other than Vagrant.
 
     ```
     # execute as root
     sudo su -
     export KAFKA_HOME="/usr/hdp/current/kafka-broker"
-    export ZOOKEEPER=node1:2181
-    export ELASTICSEARCH=node1:9200
-    export BROKERLIST=node1:6667
+    export ZOOKEEPER=metron-node1:2181
+    export ELASTICSEARCH=metron-node1:9200
+    export BROKERLIST=metron-node1:6667
     export HDP_HOME="/usr/hdp/current"
     export KAFKA_HOME="${HDP_HOME}/kafka-broker"
     export METRON_VERSION="${METRON_VERSION}"
@@ -165,7 +165,7 @@ Verify KDC
 Enable Kerberos
 ---------------
 
-1. In [Ambari](http://node1:8080), setup Storm to use Kerberos and run worker jobs as the submitting user.
+1. In [Ambari](http://metron-node1:8080), setup Storm to use Kerberos and run worker jobs as the submitting user.
 
     a. Add the following properties to the custom storm-site:
 
@@ -344,7 +344,7 @@ Storm Authorization
 
     ```
     cat << EOF > /home/metron/.storm/storm.yaml
-    nimbus.seeds : ['node1']
+    nimbus.seeds : ['metron-node1']
     java.security.auth.login.config : '/home/metron/.storm/client_jaas.conf'
     storm.thrift.transport : 'org.apache.storm.security.auth.kerberos.KerberosSaslTransportPlugin'
     EOF
@@ -509,7 +509,7 @@ ${KAFKA_HOME}/bin/kafka-console-consumer.sh \
 
 #### Modify the sensor-stubs to send logs via SASL
 ```
-sed -i 's/node1:6667 --topic/node1:6667 --security-protocol PLAINTEXTSASL --topic/' /opt/sensor-stubs/bin/start-*-stub
+sed -i 's/metron-node1:6667 --topic/metron-node1:6667 --security-protocol PLAINTEXTSASL --topic/' /opt/sensor-stubs/bin/start-*-stub
 for sensorstub in bro snort; do
     service sensor-stubs stop ${sensorstub};
     service sensor-stubs start ${sensorstub};
@@ -677,7 +677,7 @@ Execute it like the following example:
 ```
 # run as the metron user
 su - metron
-python $METRON_HOME/bin/tgt_renew.py node1:8744 metron
+python $METRON_HOME/bin/tgt_renew.py metron-node1:8744 metron
 ```
 
 

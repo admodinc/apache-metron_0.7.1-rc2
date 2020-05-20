@@ -43,7 +43,7 @@ puts " Running with ansible-tags: " + ansibleTags.split(",").to_s if ansibleTags
 puts " Running with ansible-skip-tags: " + ansibleSkipTags.split(",").to_s if ansibleSkipTags != ''
 
 hosts = [{
-    hostname: "node1",
+    hostname: "metron-node1",
     ip: "192.168.66.121",
     memory: "8192",
     cpus: 4,

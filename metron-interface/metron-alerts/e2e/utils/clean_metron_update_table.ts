@@ -33,7 +33,7 @@ export function cleanMetronUpdateTable() {
 function cleanupTable(resolve, reject) {
   var conn = new Client();
   conn.on('ready', function() {
-    console.log(chalk.bold.green('Connected to node1 as root'));
+    console.log(chalk.bold.green('Connected to metron-node1 as root'));
     conn.shell(function(err, stream) {
       if (err) throw err;
       stream.on('close', function() {
@@ -62,7 +62,7 @@ function cleanupTable(resolve, reject) {
       stream.end(comands.join('\r\n'));
     });
   }).connect({
-    host: 'node1',
+    host: 'metron-node1',
     port: 22,
     username: 'root',
     password: 'vagrant'

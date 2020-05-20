@@ -31,7 +31,7 @@ I installed Metron in a test environment with 3 VMs to try it out as well as a s
 - Multiple nodes:
 	- 3 VMs, 2 CPUs per VM and 8 GB RAM per VM.
 	- Hosts:
-	10.10.10.1 node1
+	10.10.10.1 metron-node1
 	10.10.10.2 node2
 	10.10.10.3 node3
 
@@ -369,11 +369,11 @@ Inspired by: [http://docs.hortonworks.com/HDPDocuments/Ambari-2.4.1.0/bk_ambari-
 ```
 
 - Make sure each node can resolve every other node's hostname or add hostname of each node to `/etc/hosts` on every node. For example add following lines in /etc/hosts of each node:
-10.10.10.1 node1
+10.10.10.1 metron-node1
 10.10.10.2 node2
 10.10.10.3 node3
 
-Where 10.10.10.1, 10.10.10.2 and 10.10.10.3 are the IPs of your nodes and node1, node2 and node3 are hostnames.
+Where 10.10.10.1, 10.10.10.2 and 10.10.10.3 are the IPs of your nodes and metron-node1, node2 and node3 are hostnames.
 
 - On main node download and setup Ambari repo (you may replace the "2.4.2.0" with a newer Ambari version number):
 ```
@@ -478,7 +478,7 @@ Client
 
 - Set rest of the configuration values to recommended by Ambari or the ones you desire (like DB passwords) and perform install. In a 3 node cluster, I ended up with:
 
-node1 | node2 | node3
+metron-node1 | node2 | node3
 -------------------------|-------------------------|-------------------------
 DataNode | App Timeline Server | DataNode
 Elasticsearch Master | DataNode | Elasticsearch Data Node
@@ -909,15 +909,15 @@ Before we run NiFi, we need to change the port as the default port collides with
 
 ### Exposed Interfaces ##
 In the end, you'll end up with a bunch of exposed UIs:
-- Ambari: http://node1:8080/
-- Kibana: http://node1:5000/
-- Sensor Status (monit): http://node1:2812
-- Elasticsearch: http://node1:9200/
-- Storm UI: http://node1:8744/
-- Metron REST interface: http://node1:8082/swagger-ui.html#/
-- Management UI: http://node1:4200/ (user/password)
-- Apache Nifi: http://node1:8089/nifi/
-- Zookeeper: http://node1:2181
-- Kafka: http://node1:6667
+- Ambari: http://metron-node1:8080/
+- Kibana: http://metron-node1:5000/
+- Sensor Status (monit): http://metron-node1:2812
+- Elasticsearch: http://metron-node1:9200/
+- Storm UI: http://metron-node1:8744/
+- Metron REST interface: http://metron-node1:8082/swagger-ui.html#/
+- Management UI: http://metron-node1:4200/ (user/password)
+- Apache Nifi: http://metron-node1:8089/nifi/
+- Zookeeper: http://metron-node1:2181
+- Kafka: http://metron-node1:6667
 
 ### TROUBLESHOOTING ###

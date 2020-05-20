@@ -197,7 +197,7 @@ function promiseHandlerWithResponseAndBody(resolve, reject) {
 export function loadTestData() {
   let deleteIndex = function () {
     return new Promise((resolve, reject) => {
-      request.delete('http://node1:9200/alerts_ui_e2e_index*')
+      request.delete('http://metron-node1:9200/alerts_ui_e2e_index*')
       .on('response', promiseHandlerWithResponse(resolve, reject));
     });
   };
@@ -206,7 +206,7 @@ export function loadTestData() {
     return new Promise((resolve, reject) => {
       let template = fs.readFileSync('e2e/mock-data/alerts_ui_e2e_index.template', 'utf8');
       request({
-        url: 'http://node1:9200/_template/alerts_ui_e2e_index',
+        url: 'http://metron-node1:9200/_template/alerts_ui_e2e_index',
         method: 'POST',
         body: template
       },promiseHandlerWithResponseAndBody(resolve, reject));
@@ -217,7 +217,7 @@ export function loadTestData() {
     return new Promise((resolve, reject) => {
       let data = fs.readFileSync('e2e/mock-data/alerts_ui_e2e_index.data', 'utf8');
       request({
-        url: 'http://node1:9200/alerts_ui_e2e_index/alerts_ui_e2e_doc/_bulk',
+        url: 'http://metron-node1:9200/alerts_ui_e2e_index/alerts_ui_e2e_doc/_bulk',
         method: 'POST',
         body: data
       }, promiseHandlerWithResponseAndBody(resolve, reject));
@@ -239,13 +239,13 @@ export function reduce_for_get_all() {
 }
 
 export function deleteTestData() {
-  request.delete('http://node1:9200/alerts_ui_e2e_index*');
+  request.delete('http://metron-node1:9200/alerts_ui_e2e_index*');
 }
 
 export function createMetaAlertsIndex() {
   let deleteIndex = function () {
     return new Promise((resolve, reject) => {
-      request.delete('http://node1:9200/metaalert_index*')
+      request.delete('http://metron-node1:9200/metaalert_index*')
             .on('response', promiseHandlerWithResponse(resolve, reject));
     });
   };
@@ -254,7 +254,7 @@ export function createMetaAlertsIndex() {
     return new Promise((resolve, reject) => {
       let template = fs.readFileSync('./../../metron-deployment/packaging/ambari/metron-mpack/src/main/resources/common-services/METRON/CURRENT/package/files/metaalert_index.template', 'utf8');
       request({
-        url: 'http://node1:9200/_template/metaalert_index',
+        url: 'http://metron-node1:9200/_template/metaalert_index',
         method: 'POST',
         body: template
       }, promiseHandlerWithResponseAndBody(resolve, reject));
@@ -267,5 +267,5 @@ export function createMetaAlertsIndex() {
 }
 
 export function deleteMetaAlertsIndex() {
-  request.delete('http://node1:9200/metaalert_index*');
+  request.delete('http://metron-node1:9200/metaalert_index*');
 }

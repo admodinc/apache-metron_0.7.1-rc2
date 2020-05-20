@@ -24,13 +24,13 @@
   -->
   <property>
     <name>geoip_url</name>
-    <value>http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz</value>
+    <value>https://storage.googleapis.com/metron-pub-files/GeoLite2-City_20200519.tar.gz</value>
     <description>Location of the GeoIP data to load.</description>
     <display-name>GEOIP Load Datafile URL</display-name>
   </property>
   <property>
     <name>asn_url</name>
-    <value>http://geolite.maxmind.com/download/geoip/database/GeoLite2-ASN.tar.gz</value>
+    <value>https://storage.googleapis.com/metron-pub-files/GeoLite2-ASN_20200519.tar.gz</value>
     <description>Location of the ASN data to load.</description>
     <display-name>ASN Load Datafile URL</display-name>
   </property>

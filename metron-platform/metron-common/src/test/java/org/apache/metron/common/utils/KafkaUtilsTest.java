@@ -127,7 +127,7 @@ public class KafkaUtilsTest {
 
   @RunWith(Parameterized.class)
   public static class ParameterizedEndPointParsing {
-    static String[] hostnames = new String[]{"node1", "localhost", "192.168.0.1", "my.domain.com"};
+    static String[] hostnames = new String[]{"metron-node1", "localhost", "192.168.0.1", "my.domain.com"};
     static String[] schemes = new String[]{"SSL", "PLAINTEXTSASL", "PLAINTEXT", "SASL_PLAINTEXT"};
     static String[] ports = new String[]{"6667", "9091", null};
 

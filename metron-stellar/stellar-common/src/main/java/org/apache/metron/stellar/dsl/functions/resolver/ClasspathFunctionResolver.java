@@ -73,7 +73,7 @@ public class ClasspathFunctionResolver extends BaseFunctionResolver {
   public enum Config {
     /**
      * The set of paths.  These paths are comma separated URLs with optional regex patterns at the end.
-     * e.g. hdfs://node1:8020/apps/metron/stellar/.*.jar,hdfs://node1:8020/apps/metron/my_org/.*.jar
+     * e.g. hdfs://metron-node1:8020/apps/metron/stellar/.*.jar,hdfs://metron-node1:8020/apps/metron/my_org/.*.jar
      * would signify all the jars under /apps/metron/stellar and /apps/metron/my_org in HDFS.
      */
     STELLAR_VFS_PATHS("stellar.function.paths", ""),

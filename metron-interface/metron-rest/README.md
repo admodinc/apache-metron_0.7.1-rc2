@@ -74,9 +74,9 @@ No optional parameter has a default.
 
 | Environment Variable                  | Description
 | ------------------------------------- | -----------
-| ZOOKEEPER                             | Zookeeper quorum (ex. node1:2181,node2:2181)
-| BROKERLIST                            | Kafka Broker list (ex. node1:6667,node2:6667)
-| HDFS_URL                              | HDFS url or `fs.defaultFS` Hadoop setting (ex. hdfs://node1:8020)
+| ZOOKEEPER                             | Zookeeper quorum (ex. metron-node1:2181,node2:2181)
+| BROKERLIST                            | Kafka Broker list (ex. metron-node1:6667,node2:6667)
+| HDFS_URL                              | HDFS url or `fs.defaultFS` Hadoop setting (ex. hdfs://metron-node1:8020)
 
 ### Optional - With Defaults
 | Environment Variable                  | Description                                                                          | Required | Default
@@ -259,9 +259,9 @@ The following configures the application for MySQL:
 
 1. Create a metron user and REST database and permission the user for that database:
     ```
-    CREATE USER 'metron'@'node1' IDENTIFIED BY 'Myp@ssw0rd';
+    CREATE USER 'metron'@'metron-node1' IDENTIFIED BY 'Myp@ssw0rd';
     CREATE DATABASE IF NOT EXISTS metronrest;
-    GRANT ALL PRIVILEGES ON metronrest.* TO 'metron'@'node1';
+    GRANT ALL PRIVILEGES ON metronrest.* TO 'metron'@'metron-node1';
     ```
 
 1. Create the security tables as described in the [Spring Security Guide](https://docs.spring.io/spring-security/site/docs/5.0.4.RELEASE/reference/htmlsingle/#user-schema).
@@ -1104,7 +1104,7 @@ mvn spring-boot:run -Drun.profiles=vagrant,dev
 
 The metron-rest application will be available at http://localhost:8080/swagger-ui.html#/.
 
-To run the application locally on the Full Dev host (node1), follow the [Installation](#installation) instructions above.  Then set the METRON_SPRING_PROFILES_ACTIVE variable in `/etc/default/metron`:
+To run the application locally on the Full Dev host (metron-node1), follow the [Installation](#installation) instructions above.  Then set the METRON_SPRING_PROFILES_ACTIVE variable in `/etc/default/metron`:
 ```
 METRON_SPRING_PROFILES_ACTIVE="vagrant,dev"
 ```
@@ -1121,7 +1121,7 @@ METRON_JVMFLAGS="-Djava.security.auth.login.config=$METRON_HOME/client_jaas.conf
 METRON_SPRING_OPTIONS="--kerberos.enabled=true"
 ```
 
-The metron-rest application will be available at http://node1:8082/swagger-ui.html#/.
+The metron-rest application will be available at http://metron-node1:8082/swagger-ui.html#/.
 
 ## License
 

@@ -58,5 +58,5 @@ bin/solr healthcheck -c gettingstarted
 # tar xzf solr-${SOLR_VERSION}.tgz solr-${SOLR_VERSION}/bin/install_solr_service.sh --strip-components=2
 # sudo bash ./install_solr_service.sh solr-${SOLR_VERSION}.tgz -n
 # sudo bash ./install_solr_service.sh solr-${SOLR_VERSION}.tgz -s solr2 -p 8984 -n
-# echo "export ZK_HOST=node1:2181" >> /etc/default/solr.in.sh
+# echo "export ZK_HOST=metron-node1:2181" >> /etc/default/solr.in.sh
 

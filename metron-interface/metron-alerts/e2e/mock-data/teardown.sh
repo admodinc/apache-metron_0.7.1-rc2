@@ -15,4 +15,4 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 #
-curl -s -XDELETE "http://node1:9200/alerts_ui_e2e_index"
+curl -s -XDELETE "http://metron-node1:9200/alerts_ui_e2e_index"
