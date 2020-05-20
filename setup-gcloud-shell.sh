@@ -14,4 +14,4 @@ ssh-keygen -f ~/.ssh/id_rsa -q -N ""
 echo -e "++++++++++++++++++++++++++++\n\n\n"
 echo "Your public key to copy to Compute Engine SSH Metadata"
 
-cat ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
