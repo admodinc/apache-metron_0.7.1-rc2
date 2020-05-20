@@ -17,10 +17,10 @@
 
 # Customize these global variables
 $GOOGLE_PROJECT_ID = "thermal-cathode-276606"
-$GOOGLE_JSON_KEY_LOCATION = "~/Downloads/thermal-cathode-276606-8981bcd07875.json"
-$LOCAL_USER = "shanu"
-$LOCAL_SSH_KEY = "~/.ssh/google_compute_engine"
-$NODE_NAME = "testing-vagrant"
+$GOOGLE_JSON_KEY_LOCATION = "~/thermal-cathode-276606-8981bcd07875.json"
+$LOCAL_USER = "knanda"
+$LOCAL_SSH_KEY = "~/.ssh/id_rsa"
+$NODE_NAME = "metron-node1"
 $GOODLE_IMAGE = "centos-6-v20200505"
 $GOOGLE_MACHINE_TYPE = "n1-standard-8"
 $GOOGLE_ZONE = "us-central1-f"
