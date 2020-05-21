@@ -21,7 +21,7 @@ $GOOGLE_JSON_KEY_LOCATION = "~/thermal-cathode-276606-8981bcd07875.json"
 $LOCAL_USER = "knanda"
 $LOCAL_SSH_KEY = "~/.ssh/id_rsa"
 
-# Make corresponding changes in metron-deployment/ansible/inventory/hosts file if you are changing $NODE_NAME
+# Make corresponding changes in metron-deployment/development/centos6/ansible/inventory/hosts file if you are changing $NODE_NAME
 $NODE_NAME = "metron-node1"
 $GOODLE_IMAGE = "centos-6-v20200505"
 $GOOGLE_MACHINE_TYPE = "n1-standard-8"
