@@ -31,9 +31,11 @@ echo "PRERELEASE: ${PRERELEASE}"
 # Account for non-existent file owner in container
 # Ignore UID=0, root exists in all containers
 OWNER_UID=`ls -n SPECS/metron.spec | awk -F' ' '{ print $3 }'`
+OWNER_GID=`ls -n SPECS/metron.spec | awk -F' ' '{ print $4 }'`
 id $OWNER_UID >/dev/null 2>&1
 if [ $? -ne 0 ] && [ $OWNER_UID -ne 0 ]; then
-    useradd -u $OWNER_UID builder
+    groupadd -g $OWNER_GID builder
+    useradd -g builder -u $OWNER_UID builder
 fi
 
 rm -rf SRPMS/ RPMS/
@@ -48,5 +50,5 @@ rpmlint -i SPECS/metron.spec RPMS/*/metron* SRPMS/metron
 
 # Ensure original user permissions are maintained after build
 if [ $OWNER_UID -ne 0 ]; then
-  chown -R $OWNER_UID *
+  chown -R $OWNER_UID:$OWNER_GID *
 fi
